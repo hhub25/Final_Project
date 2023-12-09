@@ -12,7 +12,7 @@ const ReadBooks = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('https://final-76bm.onrender.com');
+        const response = await axios.get('http://localhost:3000/api/products');
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error.message);

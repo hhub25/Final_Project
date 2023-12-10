@@ -13,12 +13,13 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
 
   const scrollToCollection = () => {
     navigate('/');
-    setTimeout(() => {
+    // Wait for the load event in case images or other resources are still loading
+    window.addEventListener('load', () => {
       const collectionElement = document.getElementById('our-collection');
       if (collectionElement) {
         collectionElement.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 100);
+    }, { once: true }); // The 'once' option auto-removes the event listener after it's called
   };
 
   const checkIfAtCollection = () => {

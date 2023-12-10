@@ -21,7 +21,8 @@ db.mongoose
     process.exit();
   });
 
-var corsOptions = { origin: "http://localhost:3001" };
+  var corsOptions = { origin: "https://frontend-5j5m.onrender.com" };
+
 
 app.use(cors(corsOptions));
 

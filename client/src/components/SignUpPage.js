@@ -25,11 +25,11 @@ const SignUpPage = () => {
       return;
     }
     try {
-      const response = await axios.post('${process.env.REACT_APP_API_BASE_URL}/api/users/', {
-        name: formData.username, // Make sure the field names match with your backend
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/users/`, {
+        name: formData.username,
         email: formData.email,
         password: formData.password
-      });
+      });      
       if (response.status === 201) {
         setMessage('Registration successful!');
         setFormData({ username: '', email: '', password: '', confirmPassword: '' });

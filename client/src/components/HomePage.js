@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('${process.env.REACT_APP_API_BASE_URL}/api/products');
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/products`);
         setBooks(response.data);
       } catch (error) {
         console.error('Error fetching books:', error.message);

@@ -13,7 +13,7 @@ const MyProfilePage = ({ onAccountDeletion }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/users/${userId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/${userId}`);
         setUser(response.data);
         setOriginalUser(response.data); // Store the original data for comparison
       } catch (error) {
@@ -44,7 +44,7 @@ const MyProfilePage = ({ onAccountDeletion }) => {
     }
 
     try {
-      await axios.put(`http://localhost:3000/api/users/${userId}`, updatedData);
+      await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/users/${userId}`, updatedData);
       alert('User was updated successfully.');
       setOriginalUser({ ...originalUser, ...updatedData }); // Update original user data
     } catch (error) {
@@ -56,7 +56,7 @@ const MyProfilePage = ({ onAccountDeletion }) => {
     const confirmDelete = window.confirm('Are you sure you want to delete your account?');
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:3000/api/users/${userId}`);
+        await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/users/${userId}`);
         alert('User was deleted successfully!');
         onAccountDeletion(); // Call the function passed as prop
         navigate('/');

@@ -25,7 +25,7 @@ const SignUpPage = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3000/api/users/', {
+      const response = await axios.post('${process.env.REACT_APP_API_BASE_URL}/api/users/', {
         name: formData.username, // Make sure the field names match with your backend
         email: formData.email,
         password: formData.password

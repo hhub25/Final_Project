@@ -13,7 +13,7 @@ const SignInPage = ({ onLoginSuccess }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/signin', { email, password });
+      const response = await axios.post('${process.env.REACT_APP_API_BASE_URL}/api/auth/signin', { email, password });
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userId', response.data.user._id);
       onLoginSuccess(); // Set the authentication state

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from 'axios';
 import Navbar from "./components/Navbar";
 import HomePage from "./components/HomePage";
-import BookCollection from "./components/BookCollection";
 import SignUpPage from "./components/SignUpPage";
 import SignInPage from "./components/SignInPage";
 import AboutUs from "./components/AboutUs";
@@ -71,7 +70,6 @@ function App() {
         <Route path="/userhomepage" element={<UserHomePage isAuthenticated={isAuthenticated} setCartItems={setCartItems} />} />
         <Route path="/my-profile" element={isAuthenticated ? <MyProfilePage onAccountDeletion={handleAccountDeletion} /> : <HomePage />} />
         <Route path="/cart" element={<CartPage cartItems={cartItems} onUpdateQuantity={onUpdateQuantity} onRemoveFromCart={onRemoveFromCart} totalCartPrice={totalCartPrice}/>} />
-        <Route path="/bookcollection" element={<BookCollection/>}/>
       </Routes>
     </Router>
   );

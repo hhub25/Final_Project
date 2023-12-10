@@ -26,7 +26,7 @@ function App() {
 
   const handleLogout = async () => {
     try {
-      await axios.get('http://localhost:3000/api/auth/signout');
+      await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/auth/signout`);
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
       setIsAuthenticated(false);
